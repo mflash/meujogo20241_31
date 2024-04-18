@@ -4,6 +4,9 @@ extends CharacterBody2D
 @export var jump_speed := -1000.0
 @export var gravity := 2500.0
 @onready var sprite = $PlayerSprite
+@onready var box := preload("res://box.tscn")
+
+signal jumped
 
 #func _ready() -> void:
 	#sprite = $PlayerSprite	
@@ -19,6 +22,17 @@ func get_side_input():
 
 	if is_on_floor() and jump:
 		velocity.y = jump_speed
+		#jumped.emit()
+		
+		# Usando grupos:
+		get_tree().call_group("HUD", "updateScore")
+		
+		# Instanciando cenas (nodos)
+		var b := box.instantiate()
+		# global_position para pegar a pos. no universo
+		b.position = global_position
+		# owner é o "dono" do nodo, ou seja, a raiz da cena
+		owner.add_child(b)
 	velocity.x = vel * speed
 	
 func animate():

@@ -153,3 +153,5 @@ animation = &"down"
 visible = false
 position = Vector2(-2, 1)
 shape = SubResource("RectangleShape2D_2nuhp")
+
+[node name="Camera2D" type="Camera2D" parent="."]

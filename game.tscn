@@ -1,12 +1,15 @@
-[gd_scene load_steps=14 format=3 uid="uid://cf6j0u3pd3q70"]
+[gd_scene load_steps=17 format=3 uid="uid://cf6j0u3pd3q70"]
 
 [ext_resource type="PackedScene" uid="uid://cwevdboaafka1" path="res://anim_player.tscn" id="1_2d1uw"]
+[ext_resource type="Script" path="res://game.gd" id="1_dxcxe"]
 [ext_resource type="Texture2D" uid="uid://bjn7wd6c1pr1b" path="res://bricks/Bluerock_Texture.jpg" id="2_j2twy"]
 [ext_resource type="Texture2D" uid="uid://bwahhpo8f1twq" path="res://grass/grass1.png" id="3_k7s11"]
 [ext_resource type="Texture2D" uid="uid://ue8pbs8rpww1" path="res://grass/grass2.png" id="4_e11cx"]
 [ext_resource type="Texture2D" uid="uid://bswa42qlqa4rl" path="res://grass/grass3.png" id="5_ljeqp"]
 [ext_resource type="Texture2D" uid="uid://s4h65j5lrn8g" path="res://grass/grass4.png" id="6_3b42s"]
 [ext_resource type="Texture2D" uid="uid://c1842t64r54gl" path="res://grass/grass5.png" id="7_jlvks"]
+[ext_resource type="FontFile" uid="uid://172g7mvsjck2" path="res://Xolonium-Regular.ttf" id="9_1aidq"]
+[ext_resource type="Script" path="res://hud.gd" id="9_s4hix"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5djgs"]
 size = Vector2(42, 353)
@@ -26,10 +29,22 @@ size = Vector2(82, 41)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jp84x"]
 size = Vector2(39, 41)
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" groups=["HUD"]]
+script = ExtResource("1_dxcxe")
 
 [node name="AnimPlayer" parent="." instance=ExtResource("1_2d1uw")]
 position = Vector2(652, 169)
+
+[node name="Camera2D" parent="AnimPlayer" index="2"]
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.5
+drag_top_margin = 0.5
+drag_right_margin = 0.5
+drag_bottom_margin = 0.5
+editor_draw_limits = true
+editor_draw_drag_margin = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(980, 316)
@@ -103,5 +118,19 @@ metadata/_edit_group_ = true
 visible = false
 position = Vector2(0.5, -1.5)
 shape = SubResource("RectangleShape2D_jp84x")
+
+[node name="HUD" type="CanvasLayer" parent="." groups=["HUD"]]
+script = ExtResource("9_s4hix")
+
+[node name="Score" type="Label" parent="HUD"]
+offset_left = 24.0
+offset_top = 18.0
+offset_right = 288.0
+offset_bottom = 91.0
+theme_override_fonts/font = ExtResource("9_1aidq")
+theme_override_font_sizes/font_size = 60
+text = "dfgf"
+
+[connection signal="jumped" from="AnimPlayer" to="." method="_on_jumped"]
 
 [editable path="AnimPlayer"]
