@@ -1,123 +1,12 @@
-[gd_scene load_steps=17 format=3 uid="uid://cf6j0u3pd3q70"]
+[gd_scene load_steps=5 format=3 uid="uid://cf6j0u3pd3q70"]
 
-[ext_resource type="PackedScene" uid="uid://cwevdboaafka1" path="res://anim_player.tscn" id="1_2d1uw"]
 [ext_resource type="Script" path="res://game.gd" id="1_dxcxe"]
-[ext_resource type="Texture2D" uid="uid://bjn7wd6c1pr1b" path="res://bricks/Bluerock_Texture.jpg" id="2_j2twy"]
-[ext_resource type="Texture2D" uid="uid://bwahhpo8f1twq" path="res://grass/grass1.png" id="3_k7s11"]
-[ext_resource type="Texture2D" uid="uid://ue8pbs8rpww1" path="res://grass/grass2.png" id="4_e11cx"]
-[ext_resource type="Texture2D" uid="uid://bswa42qlqa4rl" path="res://grass/grass3.png" id="5_ljeqp"]
-[ext_resource type="Texture2D" uid="uid://s4h65j5lrn8g" path="res://grass/grass4.png" id="6_3b42s"]
-[ext_resource type="Texture2D" uid="uid://c1842t64r54gl" path="res://grass/grass5.png" id="7_jlvks"]
+[ext_resource type="PackedScene" uid="uid://cda86qk72y848" path="res://level1.tscn" id="4_l5iqb"]
 [ext_resource type="FontFile" uid="uid://172g7mvsjck2" path="res://Xolonium-Regular.ttf" id="9_1aidq"]
 [ext_resource type="Script" path="res://hud.gd" id="9_s4hix"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5djgs"]
-size = Vector2(42, 353)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u7t4p"]
-size = Vector2(378, 41)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8je3f"]
-size = Vector2(274, 41)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_k74dt"]
-size = Vector2(187, 41)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cxqxp"]
-size = Vector2(82, 41)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jp84x"]
-size = Vector2(39, 41)
-
 [node name="Game" type="Node2D" groups=["HUD"]]
 script = ExtResource("1_dxcxe")
-
-[node name="AnimPlayer" parent="." instance=ExtResource("1_2d1uw")]
-position = Vector2(652, 169)
-
-[node name="Camera2D" parent="AnimPlayer" index="2"]
-position_smoothing_enabled = true
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
-drag_left_margin = 0.5
-drag_top_margin = 0.5
-drag_right_margin = 0.5
-drag_bottom_margin = 0.5
-editor_draw_limits = true
-editor_draw_drag_margin = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(980, 316)
-metadata/_edit_group_ = true
-
-[node name="BluerockTexture" type="Sprite2D" parent="StaticBody2D"]
-scale = Vector2(0.175781, 1.38281)
-texture = ExtResource("2_j2twy")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-visible = false
-position = Vector2(0, -0.5)
-shape = SubResource("RectangleShape2D_5djgs")
-
-[node name="Grass1" type="Sprite2D" parent="."]
-position = Vector2(609, 515)
-texture = ExtResource("3_k7s11")
-metadata/_edit_group_ = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Grass1"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Grass1/StaticBody2D"]
-visible = false
-position = Vector2(1, -1.5)
-shape = SubResource("RectangleShape2D_u7t4p")
-
-[node name="Grass2" type="Sprite2D" parent="."]
-position = Vector2(272, 422)
-texture = ExtResource("4_e11cx")
-metadata/_edit_group_ = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Grass2"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Grass2/StaticBody2D"]
-visible = false
-position = Vector2(5, -1.5)
-shape = SubResource("RectangleShape2D_8je3f")
-
-[node name="Grass3" type="Sprite2D" parent="."]
-position = Vector2(516, 318)
-texture = ExtResource("5_ljeqp")
-metadata/_edit_group_ = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Grass3"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Grass3/StaticBody2D"]
-visible = false
-position = Vector2(7.5, -1.5)
-shape = SubResource("RectangleShape2D_k74dt")
-
-[node name="Grass4" type="Sprite2D" parent="."]
-position = Vector2(750, 241)
-texture = ExtResource("6_3b42s")
-metadata/_edit_group_ = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Grass4"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Grass4/StaticBody2D"]
-visible = false
-position = Vector2(5, -1.5)
-shape = SubResource("RectangleShape2D_cxqxp")
-
-[node name="Grass5" type="Sprite2D" parent="."]
-position = Vector2(871, 371)
-texture = ExtResource("7_jlvks")
-metadata/_edit_group_ = true
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Grass5"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Grass5/StaticBody2D"]
-visible = false
-position = Vector2(0.5, -1.5)
-shape = SubResource("RectangleShape2D_jp84x")
 
 [node name="HUD" type="CanvasLayer" parent="." groups=["HUD"]]
 script = ExtResource("9_s4hix")
@@ -131,6 +20,7 @@ theme_override_fonts/font = ExtResource("9_1aidq")
 theme_override_font_sizes/font_size = 60
 text = "dfgf"
 
-[connection signal="jumped" from="AnimPlayer" to="." method="_on_jumped"]
+[node name="Level" parent="." instance=ExtResource("4_l5iqb")]
 
-[editable path="AnimPlayer"]
+[editable path="Level"]
+[editable path="Level/AnimPlayer"]
