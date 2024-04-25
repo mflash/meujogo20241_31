@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://cda86qk72y848"]
 
-[ext_resource type="PackedScene" uid="uid://cwevdboaafka1" path="res://anim_player.tscn" id="1_r5lfg"]
+[ext_resource type="PackedScene" uid="uid://cwevdboaafka1" path="res://player/anim_player.tscn" id="1_r5lfg"]
 [ext_resource type="Texture2D" uid="uid://bjn7wd6c1pr1b" path="res://bricks/Bluerock_Texture.jpg" id="2_3h0oi"]
 [ext_resource type="Texture2D" uid="uid://bwahhpo8f1twq" path="res://grass/grass1.png" id="3_gcgdo"]
 [ext_resource type="Texture2D" uid="uid://ue8pbs8rpww1" path="res://grass/grass2.png" id="4_ojpfs"]

@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var jump_speed := -1000.0
 @export var gravity := 2500.0
 @onready var sprite = $PlayerSprite
+@onready var sound = $PlayerSound
 @onready var box := preload("res://box.tscn")
 
 signal jumped
@@ -33,6 +34,10 @@ func get_side_input():
 		b.position = global_position
 		# owner é o "dono" do nodo, ou seja, a raiz da cena
 		owner.add_child(b)
+		
+		# Reproduz o som de pulo
+		sound.play()
+		
 	velocity.x = vel * speed
 	
 func animate():
