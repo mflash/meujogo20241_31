@@ -2,11 +2,12 @@
 
 [ext_resource type="Script" path="res://game.gd" id="1_dxcxe"]
 [ext_resource type="AudioStream" uid="uid://7aytyxh00lqr" path="res://SFX/Chiptune_Adventures_1.ogg" id="2_nuj0h"]
-[ext_resource type="PackedScene" uid="uid://cda86qk72y848" path="res://levels/level1.tscn" id="4_l5iqb"]
+[ext_resource type="PackedScene" uid="uid://bky5kbyjjk652" path="res://levels/level3.tscn" id="5_8dkyb"]
 [ext_resource type="FontFile" uid="uid://172g7mvsjck2" path="res://Xolonium-Regular.ttf" id="9_1aidq"]
 [ext_resource type="Script" path="res://hud.gd" id="9_s4hix"]
 
 [node name="Game" type="Node2D" groups=["HUD"]]
+y_sort_enabled = true
 script = ExtResource("1_dxcxe")
 
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
@@ -28,7 +29,10 @@ theme_override_fonts/font = ExtResource("9_1aidq")
 theme_override_font_sizes/font_size = 60
 text = "dfgf"
 
-[node name="Level" parent="." instance=ExtResource("4_l5iqb")]
+[node name="Level" parent="." instance=ExtResource("5_8dkyb")]
+
+[node name="AnimPlayer" parent="Level" index="1"]
+position = Vector2(548, 301)
 
 [editable path="Level"]
 [editable path="Level/AnimPlayer"]
